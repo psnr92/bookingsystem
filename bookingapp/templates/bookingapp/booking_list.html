@@ -8,9 +8,15 @@
 </head>
 
 <body>
-    {% for booking in booking_list %}
-    <h2>{{booking}}</h2>
-    {% endfor %}
+    <div>
+        <h1>Übersicht der Buchungen</h1>
+    </div>
+
+    <div>
+        {% for booking in booking_list %}
+        <h2>{{booking}}</h2>
+        {% endfor %}
+    </div>    
 </body>
 
 </html>

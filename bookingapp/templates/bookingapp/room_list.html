@@ -8,9 +8,15 @@
 </head>
 
 <body>
-    {% for room in room_list %}
-    <h2>{{room}}</h2>
-    {% endfor %}
+    <div>
+        <h1>Übersicht der Räume "htw saar Campus Rotenbühl"</h1>
+    </div>
+
+    <div>
+        {% for room in room_list %}
+        <h2>{{room}}</h2>
+        {% endfor %}
+    </div>    
 </body>
 
 </html>

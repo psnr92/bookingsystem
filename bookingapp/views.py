@@ -6,9 +6,13 @@ from bookingapp.booking_functions.availability import check_availability
 
 # Create your views here.
 
+# Erstellt eine Liste der Räume
 class RoomList(ListView):
     model=Room
 
+# Erstellt eine Liste der Buchungen und fragt User-Berechtigung ab.
+# Admin: Sieht alle Buchungen
+# Normaler User: Sieht nur seine Buchungen
 class BookingList(ListView):
     model=Booking
     def get_queryset(self, *args, **kwargs):
@@ -19,6 +23,7 @@ class BookingList(ListView):
             booking_list = Booking.objects.filter(user=self.request.user)
             return booking_list
 
+# Raumbuchungsfunktion & gleichzeitige Prüfung auf Raumverfügbarkeit
 class BookingView(FormView):
     form_class = AvailabilityForm
     template_name = 'availability_form.html'
@@ -42,4 +47,4 @@ class BookingView(FormView):
             booking.save()
             return HttpResponse(booking)
         else:
-            return HttpResponse('This Room is already booked.')
+            return HttpResponse('Zeitslot für diese Art Raumkategorie bereits belegt. Bitte versuchen Sie einen anderen Zeitslot oder wählen Sie eine andere Raumkategorie.')
