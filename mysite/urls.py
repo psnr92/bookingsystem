@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from personal.views import (
+    home_screen_view
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bookingapp.urls')),
-    path('accounts/', include('allauth.urls'))
+    path('', home_screen_view, name="home"),
+    path('accounts/', include('allauth.urls'),)
 ]
