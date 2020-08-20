@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
     #my_apps
     'bookingapp',
-    #'bookingapp.booking_functions',
+    'bookingapp.booking_functions',
     'personal',
     'account',
 ]
