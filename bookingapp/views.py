@@ -10,18 +10,25 @@ from bookingapp.booking_functions.availability import check_availability
 class RoomList(ListView):
     model=Room
 
-# Erstellt eine Liste der Buchungen und fragt User-Berechtigung ab.
+
+# Erstellt eine Liste aller Belegungen
+class BelegungList(ListView):
+    model=Booking
+
+
+# Erstellt eine Liste der Buchungen und fragt User-Berechtigung ab. (Aktuelle Verwendung: Buchungsliste gefiltert nach Username)
 # Admin: Sieht alle Buchungen
 # Normaler User: Sieht nur seine Buchungen
 class BookingList(ListView):
     model=Booking
     def get_queryset(self, *args, **kwargs):
-        if self.request.user.is_staff:
-            booking_list = Booking.objects.all()
-            return booking_list
-        else:
+#        if self.request.user.is_staff:
+#            booking_list = Booking.objects.all()
+#            return booking_list
+#        else:
             booking_list = Booking.objects.filter(user=self.request.user)
             return booking_list
+
 
 # Raumbuchungsfunktion & gleichzeitige Prüfung auf Raumverfügbarkeit
 class BookingView(FormView):
