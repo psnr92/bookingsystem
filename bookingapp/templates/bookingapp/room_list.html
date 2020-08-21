@@ -16,7 +16,11 @@
         {% for room in room_list %}
         <h2>{{room}}</h2>
         {% endfor %}
-    </div>    
+    </div>
+
+    <div>
+        <a href="{% url 'home' %}">zurück zur Startseite</a>
+    </div>
 </body>
 
 </html>

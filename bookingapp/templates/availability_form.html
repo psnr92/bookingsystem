@@ -39,7 +39,11 @@
             {% csrf_token %}
             <button type="submit">Raum buchen</button>
         </form>
-    </div>        
+    </div>
+    
+    <div>
+        <a href="{% url 'home' %}">zurück zur Startseite</a>
+    </div>
 </body>
 
 </html>
