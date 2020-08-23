@@ -33,6 +33,7 @@ from bookingapp.views import (
     BookingList,
     BookingView,
     BelegungList,
+    CancelBookingView
 )
 
 urlpatterns = [
@@ -47,6 +48,7 @@ urlpatterns = [
     path('booking_list/', BookingList.as_view(), name="BookingList"),
     path('book/', BookingView.as_view(), name="BookingView"),
     path('belegung_list/', BelegungList.as_view(), name="BelegungList"),
+    path('booking/cancel/<pk>', CancelBookingView.as_view(), name="CancelBookingView"),
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 

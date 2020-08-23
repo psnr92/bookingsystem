@@ -13,13 +13,15 @@
     </div>
 
     <div>
-        {% for room in room_list %}
-        <h2>{{room}}</h2>
-        {% endfor %}
+        <a href="{% url 'home' %}">zurück zur Startseite</a>
     </div>
 
     <div>
-        <a href="{% url 'home' %}">zurück zur Startseite</a>
+        {% for room in room_list %}
+        <div class="roomlist" style="border: 2px solid black">
+            <h2>{{room}}</h2>
+        </div>
+        {% endfor %}
     </div>
 </body>
 

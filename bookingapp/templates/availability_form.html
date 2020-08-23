@@ -13,6 +13,10 @@
     </div>
 
     <div>
+        <a href="{% url 'home' %}">zurück zur Startseite</a>
+    </div>
+
+    <div>
         <h2>Vorgehensweise:</h2>
         <p>1. Raumkategorie auswählen.<br>
             2. "Check in" eintragen: Format %Y-%m-%dT%H:%M, z.B. 2020-08-18T10:00.<br>
@@ -39,10 +43,6 @@
             {% csrf_token %}
             <button type="submit">Raum buchen</button>
         </form>
-    </div>
-    
-    <div>
-        <a href="{% url 'home' %}">zurück zur Startseite</a>
     </div>
 </body>
 

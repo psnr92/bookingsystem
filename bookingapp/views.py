@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, DeleteView
+from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from bookingapp.booking_functions.availability import check_availability
@@ -55,3 +56,8 @@ class BookingView(FormView):
             return HttpResponse(booking)
         else:
             return HttpResponse('Zeitslot für diese Art Raumkategorie bereits belegt. Bitte versuchen Sie einen anderen Zeitslot oder wählen Sie eine andere Raumkategorie.')
+
+class CancelBookingView(DeleteView):
+    model = Booking
+    template_name = 'booking_cancel_view.html'
+    success_url = reverse_lazy('BookingList')

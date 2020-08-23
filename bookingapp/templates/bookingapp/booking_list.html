@@ -37,8 +37,13 @@
             <div class="capacity">
                 <h4>Anzahl Plätze: {{booking.room.anzahl_plaetze}}</h4>
             </div>
-            <div class="cancel"><a href="{{booking.get_cancel_booking_url}}" class="invisible"><i
-                        class="far fa-2x fa-times-circle"> Buchung löschen</i></a>
+            <div class="cancel">
+                <a href="{{booking.get_cancel_booking_url}}" class="invisible"><i
+                    class="far fa-2x fa-times-circle"> Buchung löschen</i></a>
+                    <!--  {% if request.user.email == booking.user %} -->
+                    <!-- {% else %}
+                    <p>Löschung nur über Admin-Seite</p>
+                    {% endif %} -->
             </div>
         </div>
         {% endfor %}
