@@ -11,15 +11,37 @@
     <div>
         <h1>Buchungen</h1>
     </div>
-
-    <div>
-        {% for booking in booking_list %}
-        <h2>{{booking}}</h2>
-        {% endfor %}
-    </div>
     
     <div>
         <a href="{% url 'home' %}">zurück zur Startseite</a>
+    </div>
+
+    <div class="bookings">
+        {% for booking in booking_list %}
+        <div class="booking" style="border: 2px solid black">
+            <div class="Bucher">
+                <h2>Gebucht von: {{booking.user}}</h2>
+            </div>
+            <div class="category">
+                <h3>{{booking.room.category}} || {{booking.room.raumID}}</h3>
+            </div>
+            <div class="from">
+                <h4>Von: {{booking.check_in}}</h4>
+            </div>
+            <div class="to">
+                <h4>Bis: {{booking.check_out}}</h4>
+            </div>
+            <div class="pcs">
+                <h4>Anzahl PC's: {{booking.room.anzahl_pc}}</h4>
+            </div>
+            <div class="capacity">
+                <h4>Anzahl Plätze: {{booking.room.anzahl_plaetze}}</h4>
+            </div>
+            <div class="cancel"><a href="{{booking.get_cancel_booking_url}}" class="invisible"><i
+                        class="far fa-2x fa-times-circle"> Buchung löschen</i></a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </body>
 
