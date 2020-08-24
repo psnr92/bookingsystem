@@ -33,7 +33,7 @@ from bookingapp.views import (
     BookingList,
     BookingView,
     BelegungList,
-    CancelBookingView,
+    CancelBookingView
 )
 
 urlpatterns = [
