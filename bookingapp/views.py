@@ -15,6 +15,9 @@ class RoomList(ListView):
 # Erstellt eine Liste aller Belegungen
 class BelegungList(ListView):
     model=Booking
+    def get_queryset(self, *args, **kwargs):
+        belegung_list = Booking.objects.all()
+        return belegung_list
 
 
 # Erstellt eine Liste der Buchungen und fragt User-Berechtigung ab. (Aktuelle Verwendung: Buchungsliste gefiltert nach Username)
@@ -57,6 +60,8 @@ class BookingView(FormView):
         else:
             return HttpResponse('Zeitslot für diese Art Raumkategorie bereits belegt. Bitte versuchen Sie einen anderen Zeitslot oder wählen Sie eine andere Raumkategorie.')
 
+
+# Löschfunktion für Buchungen
 class CancelBookingView(DeleteView):
     model = Booking
     template_name = 'booking_cancel_view.html'
